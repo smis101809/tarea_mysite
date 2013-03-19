@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>.::Pagina Principal::.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
+<!--
+body {
+	background-color: #CCCCCC;
+}
+body,td,th {
+	color: #000000;
+}
+-->
+</style></head>
+<body>
+<table width="200" border="0">
+  <tr>
+    <td><img src="img/home.png" width="300" height="300"></td>
+    <td><img src="img/encabezado.jpg" width="700" height="300"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+{% if latest_poll_list %}
+    <ul>
+    {% for poll in latest_poll_list %}
+		<li><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</body>
